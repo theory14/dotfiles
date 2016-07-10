@@ -1,0 +1,42 @@
+# PATH
+export PATH=$PATH:~/bin
+
+# options
+setopt vi
+setopt autocd
+setopt autolist
+setopt menucomplete
+setopt listtypes
+setopt incappendhistory
+setopt histignorealldups
+setopt multios
+setopt beep
+
+# general env varialbes
+export EDITOR=vi
+export PAGER=less
+export LESS=-R
+export HISTSIZE=1000
+export SAVEHIST=10000
+export HISTFILE=~/.history
+
+# setup autocompletion
+autoload -U compinit && compinit -u
+# install zmv
+autoload -U zmv
+
+
+# source aliases
+. ~/.zsh/aliases.zsh
+
+# source prompt
+. ~/.zsh/prompt.zsh
+
+# source ls colors
+. ~/.zsh/colorize.zsh
+
+# source terminal title bar
+. ~/.zsh/terminal_title.zsh
+
+# source private variables
+. ~/.zsh/private.zsh

@@ -1,0 +1,25 @@
+" Configure vim
+"
+" Configuration with several configuration files
+" - .vim/extended.vimrc:	Pulls in many plugins via Vundle and
+"							configurations them.
+" - .vim/basic.vimrc:		No plugins availalbe, so set some basic
+"							settings
+"
+" If neither of the two are available, some basic settings are
+" applied.
+
+if filereadable($HOME . "/.vim/bundle/Vundle.vim/autoload/vundle.vim")
+	if filereadable($HOME . "/.vim/extended.vimrc")
+		source $HOME/.vim/extended.vimrc
+	endif
+elseif filereadable("$HOME/.vim/basic.vimrc")
+	source $HOME/.vim/basic.vimrc
+else
+	set nocompatible
+	set ruler
+	set tabstop=4
+	set softtabstop=4
+	set shiftwidth=4
+	set expandtab
+endif
