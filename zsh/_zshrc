@@ -5,7 +5,6 @@ export PATH=$PATH:~/bin
 setopt vi
 setopt autocd
 setopt autolist
-setopt menucomplete
 setopt listtypes
 setopt incappendhistory
 setopt histignorealldups
@@ -19,6 +18,14 @@ export LESS=-R
 export HISTSIZE=1000
 export SAVEHIST=10000
 export HISTFILE=~/.history
+
+# golang variables and updates
+export GOPATH=~/Source/go
+export PATH=$PATH:$GOPATH/bin
+
+
+# fix GNU ls quoting
+export QUOTING_STYLE=literal
 
 # setup autocompletion
 autoload -U compinit && compinit -u

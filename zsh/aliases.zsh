@@ -4,7 +4,7 @@
 
 # homebrew update
 #alias brewup='brew update && brew upgrade && brew cleanup'
-alias brewup='brew update && brew cask update && brew upgrade --all && brew cleanup && brew cask cleanup'
+alias brewup='brew update && brew upgrade --all && brew cleanup && brew cask cleanup'
 
 # FreeBSD pkg update
 alias packup='pkg update && pkg upgrade && pkg clean'

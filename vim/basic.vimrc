@@ -13,7 +13,6 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set showmatch
-set colorcolumn=80
 " get rid of scrollbars
 set guioptions-=R
 set guioptions-=L
@@ -75,9 +74,9 @@ au BufRead,BufNewFile *.yaml,*.yml, match BadWhitespace /\s\+$/
 "---------------------------
 " golang
 "---------------------------
-au BufNewFile,BufRead *.go set tabstop=4
-au BufNewFile,BufRead *.go set softtabstop=4
-au BufNewFile,BufRead *.go set shiftwidth=4
+au BufNewFile,BufRead *.go set tabstop=8
+au BufNewFile,BufRead *.go set softtabstop=8
+au BufNewFile,BufRead *.go set shiftwidth=8
 au BufNewFile,BufRead *.go set textwidth=79
 au BufNewFile,BufRead *.go set autoindent
 au BufNewFile,BufRead *.go set fileformat=unix

@@ -1,8 +1,0 @@
-[user]
-	name = "chris@theory14.net"
-	email = "Chris Gordon"
-[color]
-	ui = true
-[core]
-	excludesfile = ~/.gitignore-global
-	pager = less -r

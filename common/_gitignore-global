@@ -1,8 +1,6 @@
-*~
 *sublime-project
 *sublime-workspace
 *.pyc
-*.vim
 
 ######################
 # OS generated files #

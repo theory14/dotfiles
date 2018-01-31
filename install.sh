@@ -24,15 +24,32 @@ install_common() {
 		cp "${FILENAME}" "${HOME}/${NEWNAME}"
 	done
 
+}
+
+install_vim() {
+
+	cp vim/_vimrc "${HOME}/.vimrc"
+
 	# Get vim directory
 	if [ -d "${HOME}/.vim" ]; then
-		cp common/vim/* "${HOME}/.vim/"
+		cp -r vim/* "${HOME}/.vim/"
+	fi
+
+}
+
+install_fvwm() {
+	if [ -d "${HOME}/.fvwm" ]; then
+		cp -r fvwm/* "${HOME}/.fvwm/"
 	fi
 }
 
+
 case "$METHOD" in
-    bash)
-        install_bash
+    fvwm)
+        install_fvwm
+        ;;
+    vim)
+        install_vim
         ;;
     zsh)
         install_zsh
@@ -41,12 +58,13 @@ case "$METHOD" in
         install_common
         ;;
     all)
-        install_bash
+        install_vim
+		install_fvwm
         install_zsh
         install_common
         ;;
     *)
-        echo "Usage: $0 {bash|zsh|all}"
+        echo "Usage: $0 {all|zsh|common|fvwm|vim}"
         exit 1
 esac
 

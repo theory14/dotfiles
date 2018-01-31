@@ -8,10 +8,11 @@
 "
 " If neither of the two are available, some basic settings are
 " applied.
-
-if filereadable($HOME . "/.vim/bundle/Vundle.vim/autoload/vundle.vim")
-	if filereadable($HOME . "/.vim/extended.vimrc")
-		source $HOME/.vim/extended.vimrc
+if v:version > 704
+	if filereadable($HOME . "/.vim/bundle/Vundle.vim/autoload/vundle.vim")
+		if filereadable($HOME . "/.vim/extended.vimrc")
+			source $HOME/.vim/extended.vimrc
+		endif
 	endif
 elseif filereadable("$HOME/.vim/basic.vimrc")
 	source $HOME/.vim/basic.vimrc

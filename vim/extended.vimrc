@@ -15,7 +15,8 @@ Plugin 'tmhedberg/SimpylFold'
 " python
 Plugin 'vim-scripts/indentpython.vim'
 " code completion
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 " syntax checking
 Plugin 'scrooloose/syntastic'
 " file browsing
@@ -26,7 +27,7 @@ Plugin 'Yggdroot/indentLine'
 " Git Gutter
 Plugin 'airblade/vim-gitgutter'
 " Solarized colors
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 " Powerline
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Ansible
@@ -38,6 +39,10 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 " comment automation
 Plugin 'scrooloose/nerdcommenter'
+" tags
+Plugin 'majutsushi/tagbar'
+" Tex/LaTeX
+Plugin 'lervag/vimtex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -60,7 +65,11 @@ if has('gui_running')
    colorscheme solarized
    let g:solarized_contrast="high"
    let g:solarized_visibility="high"
-   set guifont=Sauce_Code_Powerline_ExtraLight:h11
+   if has('osx')
+	   set guifont=Sauce_Code_Powerline_ExtraLight:h11
+	else
+	   set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+	endif
 endif
 " get rid of scrollbars
 set guioptions-=R
@@ -144,6 +153,7 @@ let g:ansible_extra_keywords_highlight = 1
 " golang
 "---------------------------
 " vim-go
+let g:go_highlight_types = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
@@ -151,10 +161,16 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_deadline = "5s"
 " basic editing
-au BufNewFile,BufRead *.go set tabstop=4
-au BufNewFile,BufRead *.go set softtabstop=4
-au BufNewFile,BufRead *.go set shiftwidth=4
+au BufNewFile,BufRead *.go set tabstop=8
+au BufNewFile,BufRead *.go set softtabstop=8
+au BufNewFile,BufRead *.go set shiftwidth=8
 au BufNewFile,BufRead *.go set textwidth=79
 au BufNewFile,BufRead *.go set autoindent
 au BufNewFile,BufRead *.go set fileformat=unix
@@ -164,11 +180,12 @@ au BufNewFile,BufRead *.go set encoding=utf-8
 " syntastic
 "---------------------------
 " avoid conflicts with vim-go
-let g:go_fmt_fail_silently = 1
+" let g:go_fmt_fail_silently = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
+let g:syntastic_go_checker = ['go']
 
 "---------------------------
 " NERDcommenter
@@ -176,3 +193,28 @@ let g:syntastic_aggregate_errors = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
+
+"---------------------------
+" Neocomplete
+"---------------------------
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+" let g:neocomplete#enable_smart_case = 1
+" autocmd VimEnter * NeoCompleteEnable
+
+"---------------------------
+" Markdown
+"---------------------------
+let g:vim_markdown_conceal = 0
+au BufNewFile,BufRead *.md set spell spelllang=en_us
+
+"---------------------------
+" Tex/LaTeX
+"---------------------------
+let g:tex_conceal = ""
+let g:tex_flavor = "latex"
+au BufNewFile,BufRead *.tex set spell spelllang=en_us
+
