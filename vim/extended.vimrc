@@ -26,8 +26,6 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Yggdroot/indentLine'
 " Git Gutter
 Plugin 'airblade/vim-gitgutter'
-" Solarized colors
-" Plugin 'altercation/vim-colors-solarized'
 " Powerline
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Ansible
@@ -62,7 +60,7 @@ set showmatch
 set colorcolumn=80
 if has('gui_running')
    set background=dark
-   colorscheme solarized
+   colorscheme solflux
    let g:solarized_contrast="high"
    let g:solarized_visibility="high"
    if has('osx')
